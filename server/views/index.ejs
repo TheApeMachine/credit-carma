@@ -3,11 +3,13 @@
   <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="/javascripts/jquery.js"></script>
+    <script src="/javascripts/app.js"></script>
   </head>
   <body>
     <h1><%= title %></h1>
     <p>Please pay us!</p>
-    <form class="form" action="/users" method="post">
+    <form class="form" action="/users" method="post" id="cc-form">
       <p><label for="first_name">First Name</label><br />
       <input type="text" name="first_name" id="first_name" /></p>
 
