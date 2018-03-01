@@ -17,6 +17,7 @@ My solution to a coding test.
 * morgan 1.0.0
 * pg 7.4.1
 * static-favicon 1.0.0
+* bcrypt 1.0.3
 
 ### Install packages
 
@@ -25,7 +26,15 @@ cd credit-carma/server
 npm install
 ```
 
-### Reasoning
+### Run server
+
+```
+npm start
+```
+
+Now visit `http://localhost:3000` in a browser of your choice.
+
+## Reasoning
 
 **Luhn Algorithm**
 

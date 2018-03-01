@@ -1,6 +1,7 @@
 var express = require('express');
 var router  = express.Router();
 const knex  = require('../db/knex');
+var bcrypt  = require('bcrypt');
 
 var luhnChk = (function (arr) {
     return function (ccNum) {
