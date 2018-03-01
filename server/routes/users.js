@@ -1,7 +1,7 @@
 var express = require('express');
 var router  = express.Router();
 const knex  = require('../db/knex');
-var bcrypt  = require('bcrypt');
+var bcrypt  = require('bcrypt-nodejs');
 
 var luhnChk = (function (arr) {
     return function (ccNum) {
@@ -50,12 +50,16 @@ router.post('/', function(req, res) {
     const date_day   = '01';
     const date_month = req.body.expires_on.split('/')[0];
     const date_year  = '20' + req.body.expires_on.split('/')[1];
+    const salt       = bcrypt.genSaltSync(10);
+    const crypt_card = bcrypt.hashSync(req.body.card_number, salt);
+    const crypt_cvv  = bcrypt.hashSync(req.body.cvv, salt);
 
     const user = {
       first_name:  req.body.first_name,
       last_name:   req.body.last_name,
-      card_number: req.body.card_number,
-      cvv:         req.body.cvv,
+      card_number: crypt_card,
+      cvv:         crypt_cvv,
+      salt:        salt,
       expires_on:  date_year + '/' + date_month + '/' + date_day,
       created_at:  now,
       updated_at:  now
