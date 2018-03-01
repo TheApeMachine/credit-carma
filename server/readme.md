@@ -18,6 +18,9 @@ My solution to a coding test.
 * pg 7.4.1
 * static-favicon 1.0.0
 * bcrypt 1.0.3
+* chai 4.1.2"
+* chai-http 3.0.0"
+* mocha 5.0.1
 
 ### Install packages
 
@@ -33,6 +36,12 @@ npm start
 ```
 
 Now visit `http://localhost:3000` in a browser of your choice.
+
+### Run tests
+
+```
+npm test
+```
 
 ## Reasoning
 

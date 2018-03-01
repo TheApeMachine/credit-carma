@@ -45,6 +45,10 @@ router.get('/:id', function(req, res) {
 });
 
 router.post('/', function(req, res) {
+  // Allow people to enter their card number with white spaces after every 4 numbers.
+  // This is how credit cards display the number on the card, and can cause confusion.
+  req.body.card_number = req.body.card_number.replace(/\s+/g, '');
+
   if(validUser(req.body)) {
     const cur_date   = new Date()
     const cur_year   = cur_date.getFullYear().toString();

@@ -6,8 +6,11 @@ $(function() {
       url: '/users',
       method: 'POST',
       data: $(this).serialize(),
-      success: function() {
-
+      success: function(data) {
+        alert('Thank you, come again!');
+      },
+      error: function(data) {
+        alert('Something went wrong...');
       }
     });
 
