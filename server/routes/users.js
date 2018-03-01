@@ -46,10 +46,12 @@ router.get('/:id', function(req, res) {
 
 router.post('/', function(req, res) {
   if(validUser(req.body)) {
-    const now        = new Date().toLocaleString();
+    const cur_date   = new Date()
+    const cur_year   = cur_date.getFullYear().toString();
+    const now        = cur_date.toLocaleString();
     const date_day   = '01';
     const date_month = req.body.expires_on.split('/')[0];
-    const date_year  = '20' + req.body.expires_on.split('/')[1];
+    const date_year  = cur_year.substr(0, 2) + req.body.expires_on.split('/')[1];
     const salt       = bcrypt.genSaltSync(10);
     const crypt_card = bcrypt.hashSync(req.body.card_number, salt);
     const crypt_cvv  = bcrypt.hashSync(req.body.cvv, salt);
