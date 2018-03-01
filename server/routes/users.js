@@ -2,11 +2,29 @@ var express = require('express');
 var router  = express.Router();
 const knex  = require('../db/knex');
 
+var luhnChk = (function (arr) {
+    return function (ccNum) {
+        var
+            len = ccNum.length,
+            bit = 1,
+            sum = 0,
+            val;
+
+        while (len) {
+            val = parseInt(ccNum.charAt(--len), 10);
+            sum += (bit ^= 1) ? arr[val] : val;
+        }
+
+        return sum && sum % 10 === 0;
+    };
+}([0, 2, 4, 6, 8, 1, 3, 5, 7, 9]));
+
 function validUser(user) {
   return typeof user.first_name == 'string' &&
                 user.first_name.trim() != '' &&
          typeof user.last_name == 'string' &&
-                user.last_name.trim() != '';
+                user.last_name.trim() != '' &&
+                luhnChk(user.card_number);
 }
 
 router.get('/:id', function(req, res) {
