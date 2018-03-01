@@ -6,6 +6,24 @@
   </head>
   <body>
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <p>Please pay us!</p>
+    <form class="form" action="/users" method="post">
+      <p><label for="first_name">First Name</label><br />
+      <input type="text" name="first_name" id="first_name" /></p>
+
+      <p><label for="last_name">Last Name</label><br />
+      <input type="text" name="last_name" id="last_name" /></p>
+
+      <p><label for="card_number">Card Number</label><br />
+      <input type="text" name="card_number" id="card_number" /></p>
+
+      <p><label for="cvv">CVV</label><br />
+      <input type="text" name="cvv" id="cvv" /></p>
+
+      <p><label for="expires_on">Expiration Date (mm/yy)</label><br />
+      <input type="text" name="expires_on" id="expires_on" /></p>
+
+      <p><input type="submit" name="submit" id="submit" value="Pay Now!" /></p>
+    </form>
   </body>
 </html>
