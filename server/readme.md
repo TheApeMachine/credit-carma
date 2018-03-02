@@ -70,3 +70,5 @@ Besides that I am not a designer, and have no eye for design, so I would prefer 
 * Move the code into a proper MVC structure.
 * Allow the end-user a choice whether or not to store credit card details for future payments.
 * Implement a proper CSS framework, or at the very least develop a better looking app with in-house CSS styles.
+* Implement more comprehensive validations, on a case by case basis so we can show form errors.
+* Implement dynamic front-end validations and masked input fields for card number and expiration date for usability.
